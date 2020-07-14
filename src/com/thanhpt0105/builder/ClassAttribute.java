@@ -24,4 +24,9 @@ public class ClassAttribute {
     public void setType(String type) {
         this.type = type;
     }
+
+    @Override
+    public String toString() {
+        return new StringBuilder().append("public ").append(this.type).append(" ").append(this.name).toString();
+    }
 }

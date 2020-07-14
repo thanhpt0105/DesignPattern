@@ -7,29 +7,21 @@ import java.util.Map;
 
 public class CodeBuilder {
 
-    private String className;
-    List<ClassAttribute> attributes = new ArrayList<>();
-    private final String INDENT = "     ";
+    private Class theClass;
 
     public CodeBuilder(String className) {
-        this.className = className;
+        this.theClass = new Class(className);
     }
 
     public CodeBuilder addField(String name, String type) {
         ClassAttribute attribute = new ClassAttribute(name, type);
-        this.attributes.add(attribute);
+        this.theClass.getAttributes().add(attribute);
         return this;
     }
 
     @Override
     public String toString()
     {
-        StringBuilder sb = new StringBuilder();
-        sb.append("public class ").append(this.className).append(" {\n");
-        for (ClassAttribute attribute: attributes) {
-            sb.append(INDENT).append("public ").append(attribute.getType()).append(" ").append(attribute.getName()).append(";\n");
-        }
-        sb.append("}");
-        return sb.toString();
+        return theClass.toString();
     }
 }

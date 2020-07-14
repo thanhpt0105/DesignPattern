@@ -30,10 +30,11 @@ public class Class {
 
     @Override
     public String toString() {
+        String ls = System.lineSeparator();
         StringBuilder sb = new StringBuilder();
-        sb.append("public class ").append(this.name).append(" {\n");
+        sb.append("public class ").append(this.name).append(" {").append(ls);
         for (ClassAttribute attribute: attributes) {
-            sb.append(INDENT).append(attribute).append(";\n");
+            sb.append(INDENT).append(attribute).append(";").append(ls);
         }
         sb.append("}");
         return sb.toString();

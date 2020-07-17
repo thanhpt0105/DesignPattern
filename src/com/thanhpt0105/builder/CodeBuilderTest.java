@@ -17,4 +17,13 @@ class CodeBuilderTest {
                 "}";
         assertEquals(expectedOutput, cb.toString());
     }
+
+    @Test
+    void testEmptyClass() {
+        CodeBuilder cb = new CodeBuilder("Person");
+        String ls = System.lineSeparator();
+        String expectedOutput = "public class Person {" + ls +
+                "}";
+        assertEquals(expectedOutput, cb.toString());
+    }
 }
